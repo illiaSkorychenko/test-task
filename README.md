@@ -27,7 +27,7 @@
 
 **Endpoint** - `/api/docs`
 
-Tests
+# Tests
 Command - `npm run test:unit`
 
 # Task description
