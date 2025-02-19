@@ -20,6 +20,7 @@
 2. All `npm run start:docker`
 
 > **SQS_CUSTOM_ENDPOINT**=http://localstack:4566
+
 > **SQS_NOTIFICATION_QUEUE_URL**=http://sqs.us-east-1.localstack.localstack.cloud:4566/000000000000/notification
 
 # Swagger
