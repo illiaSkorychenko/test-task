@@ -25,7 +25,7 @@ export class DbModule implements BeforeApplicationShutdown {
               port: parseInt(envConfig.DB_PORT),
               database: envConfig.DB_NAME,
               user: envConfig.DB_USER,
-              password: envConfig.DB_PASSWORD
+              password: envConfig.DB_PASSWORD,
             };
 
             if (envConfig.NODE_ENV !== EnvTypes.Local) {
@@ -37,10 +37,10 @@ export class DbModule implements BeforeApplicationShutdown {
             module.client = client;
 
             return client;
-          }
-        }
+          },
+        },
       ],
-      exports: [DB_CONNECTION_TOKEN]
+      exports: [DB_CONNECTION_TOKEN],
     };
   }
 

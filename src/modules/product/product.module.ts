@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AwsConnectorModule } from '../../connectors/aws/aws-connector.module';
-import { ProductService } from './product.service'; // was GoodsService
+import { ProductService } from './product.service';
 import { SqsConnectorService } from '../../connectors/aws/sqs-connector.service';
 import { ReposModule } from '../../repos/repos.module';
 import { ProductRepoService } from '../../repos/product-repo.service';
@@ -14,9 +14,9 @@ import { PrometheusConnectorService } from '../../connectors/prometheus/promethe
       provide: ProductService.name,
       useFactory: (messageBroker, productRepo, prometheusConnector) =>
         new ProductService(messageBroker, productRepo, prometheusConnector),
-      inject: [SqsConnectorService, ProductRepoService, PrometheusConnectorService]
-    }
+      inject: [SqsConnectorService, ProductRepoService, PrometheusConnectorService],
+    },
   ],
-  exports: [ProductService.name]
+  exports: [ProductService.name],
 })
 export class ProductModule {}

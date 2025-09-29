@@ -4,13 +4,7 @@ import tsEslint from 'typescript-eslint';
 
 export default [
   {
-    ignores: [
-      'eslint.config.mjs',
-      'dist/',
-      'node_modules/',
-      'migrations/',
-      '**/*.{js,mjs,cjs}',
-    ],
+    ignores: ['eslint.config.mjs', 'dist/', 'node_modules/', 'migrations/', '**/*.{js,mjs,cjs}'],
   },
   ...tsEslint.config(pluginJs.configs.recommended, {
     extends: [...tsEslint.configs.recommended],
@@ -67,7 +61,7 @@ export default [
       'object-curly-spacing': ['error', 'always'],
       curly: 'error',
       'no-async-promise-executor': ['error'],
-      'comma-dangle': ['error', 'never'],
+      'comma-dangle': 0,
     },
   }),
 ];

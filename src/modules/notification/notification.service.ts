@@ -1,13 +1,10 @@
-import { Injectable } from '@nestjs/common';
 import { NotificationMessageDto } from '../../types/dtos/notification/NotificationMessageDto';
-import { Logger } from '../../types/interfaces/connectors/Loggger';
+import { MetricService } from 'src/types/interfaces/connectors/MetricService';
 
-@Injectable()
 export class NotificationService {
-  constructor(private logger: Logger) {}
+  constructor(private messageService: MetricService) {}
 
   async processMessage(message: NotificationMessageDto) {
-    this.logger.log('Message:', message);
-    // TODO prometheus call
+    await this.messageService.incActionCounter(message.type);
   }
 }

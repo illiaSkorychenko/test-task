@@ -2,9 +2,10 @@ import { Injectable } from '@nestjs/common';
 import promClient from 'prom-client';
 import { ConfigConnectorService } from '../config/config-connector.service';
 import { NotificationTypes } from '../../types/enums/common/NotificationTypes';
+import { MetricService } from 'src/types/interfaces/connectors/MetricService';
 
 @Injectable()
-export class PrometheusConnectorService {
+export class PrometheusConnectorService implements MetricService {
   private requestCounter: promClient.Counter;
 
   constructor(private configConnector: ConfigConnectorService) {
@@ -13,7 +14,7 @@ export class PrometheusConnectorService {
     this.requestCounter = new promClient.Counter({
       name: envConfig.PROMETHEUS_PRODUCT_COUNTER_NAME,
       help: 'Product request counter',
-      labelNames: ['action_type']
+      labelNames: ['action_type'],
     });
   }
 
@@ -26,7 +27,7 @@ export class PrometheusConnectorService {
 
     return {
       metrics,
-      contentType: promClient.register.contentType
+      contentType: promClient.register.contentType,
     };
   }
 }

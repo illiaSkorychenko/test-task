@@ -1,4 +1,3 @@
-import { Injectable } from '@nestjs/common';
 import { MessageBroker } from '../../types/interfaces/connectors/MessageBroker';
 import { ProductRepo } from '../../types/interfaces/repos/ProductRepo';
 import { CreateProductDto } from '../../types/dtos/product/CreateProductDto';
@@ -7,7 +6,6 @@ import { NotificationMessageDto } from '../../types/dtos/notification/Notificati
 import { NotificationTypes } from '../../types/enums/common/NotificationTypes';
 import { MetricService } from '../../types/interfaces/connectors/MetricService';
 
-@Injectable()
 export class ProductService {
   constructor(
     private messageBroker: MessageBroker,
